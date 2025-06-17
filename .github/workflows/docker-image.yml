@@ -11,5 +11,7 @@ jobs:
     - name: Inicia sesion en docker hub
       run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin 
     - name: Construye la imagen usando el Dockerfile
-      run: docker build . --file Dockerfile --tag hipermegared/inventario:latest    
+      run: docker build . --file Dockerfile --tag hipermegared/inventario:latest
+    - name: Push a Dockerhub
+      run: docker push hipermegared/inventario
     
